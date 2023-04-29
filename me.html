@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Life So FaR</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Dosis', sans-serif;
+        }
+
+        html {
+            background: #000;
+            height: 100%;
+        }
+
+        body {
+            background: #000;
+            background-image: url('https://images.unsplash.com/photo-1568870217912-18f8e402efb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');
+            background-size: cover;
+            color: #fff;
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            flex-direction: column;
+        }
+        h1 {
+            text-transform: capitalize;
+        }
+
+        h1>p {
+            font-size: 60px;
+        }
+
+        .counters {
+            margin: 20px;
+        }
+        .counters_2 {
+            margin: 30px;
+        }
+
+        .counter {
+            background: #0088ff;
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .counter>p {
+            text-transform: uppercase;
+            background: #0069ff;
+            padding: 8px;
+        }
+
+        span {
+            display: block;
+            height: 125px;
+            font-size: 50px;
+            line-height: 125px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="time-container">
+        
+        <p id="time-elapsed"></p>
+    </div> -->
+
+    <div class='container'>
+        <!-- My Life So Far: Counting Time Since Birth
+        The Clock of Life: Measuring Time Elapsed Since Birth
+        The Duration of My Existence: A Real-Time Tracker of My Life
+        Counting the Seconds: Tracking the Time Since My Birth
+        Birth to Present: A Digital Countdown of My Life's Journey -->
+        <h1 id='title'>The Duration of My Existence</p>
+        </h1>
+        <div class='counters'>
+
+            <div class='counter'>
+                <span id='years'>NA</span>
+                <p>Years</p>
+            </div>
+
+            <div class='counter'>
+                <span id='months'>NA</span>
+                <p>Month</p>
+            </div>
+
+            <div class='counter'>
+                <span id='days'>NA</span>
+                <p>Days</p>
+            </div>
+
+            <div class='counter'>
+                <span id='hours'>NA</span>
+                <p>Hours</p>
+            </div>
+
+            <div class='counter'>
+                <span id='minutes'>NA</span>
+                <p>Minutes</p>
+            </div>
+
+            <div class='counter'>
+                <span id='seconds'>NA</span>
+                <p>Seconds</p>
+            </div>
+
+        </div>
+        <div class="counters_2">
+            <div class='counter'>
+                <span id='tdays'>NA</span>
+                <p>Total Days</p>
+            </div>
+
+            <div class='counter'>
+                <span id='thours'>NA</span>
+                <p>Total Hours</p>
+            </div>
+
+            <div class='counter'>
+                <span id='tmin'>NA</span>
+                <p>Total Minutes</p>
+            </div>
+
+            <div class='counter'>
+                <span id='tseconds'>NA</span>
+                <p>Total Seconds</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Define the start date and time
+        var startDate = new Date("2005-05-01T00:30:00");
+
+        // Function to update and display the time elapsed
+        function updateTimeElapsed() {
+            var now = new Date();
+            var timeElapsed = now - startDate;
+
+            var years = Math.floor(timeElapsed / (1000 * 60 * 60 * 24 * 365.25));
+            var months = Math.floor(timeElapsed / (1000 * 60 * 60 * 24 * 30.44) % 12);
+            var days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24) % 30.44);
+            var hours = Math.floor((timeElapsed / (1000 * 60 * 60)) % 24);
+            var minutes = Math.floor((timeElapsed / (1000 * 60)) % 60);
+            var seconds = Math.floor((timeElapsed / 1000) % 60);
+
+            var totaldays = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
+            var totalHours = Math.floor(timeElapsed / (1000 * 60 * 60));
+            var totalMinutes = Math.floor(timeElapsed / (1000 * 60));
+            var totalSeconds = Math.floor(timeElapsed / 1000);
+
+            $('#years').text(years);
+            $('#months').text(months);
+            $('#days').text(days);
+            $('#hours').text(hours);
+            $('#minutes').text(minutes);
+            $('#seconds').text(seconds);
+            $('#tdays').text(totaldays);
+            $('#thours').text(totalHours);
+            $('#tmin').text(totalMinutes);
+            $('#tseconds').text(totalSeconds);
+        }
+
+        // Call the updateTimeElapsed function every second
+        setInterval(updateTimeElapsed, 1000);
+    </script>
+</body>
+
+</html>
